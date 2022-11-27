@@ -1,0 +1,31 @@
+import { Meta, Story, Preview, Canvas } from "@storybook/addon-docs/blocks";
+import { Link } from "./Link";
+
+<Meta 
+    title="Link" 
+    component={Link} 
+    args={{
+        children: "Link"    
+    }}
+/>
+
+# Link 
+
+<Preview>
+    <Story name="Default">
+        {(args) => <Link {...args} />}  
+    </Story>
+</Preview>
+
+# Underline 
+
+<Preview>
+    <Story 
+        name="Underline"
+        args={{
+            underline: true,
+        }}
+    >
+        {(args) => <Link {...args} />}  
+    </Story>
+</Preview>

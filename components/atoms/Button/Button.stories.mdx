@@ -1,0 +1,59 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { Button } from "./Button";
+
+<Meta 
+    title="Button" 
+    component={Button} 
+    args={{
+        children: "Button"    
+    }}
+/>
+
+# Button 
+
+This is Button component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => <Button {...args} />}  
+    </Story>
+</Preview>
+
+# Primary 
+
+<Preview>
+    <Story 
+        name="Primary"
+        args={{
+            primary: true,
+        }}
+    >
+        {(args) => <Button {...args} />}  
+    </Story>
+</Preview>
+
+# Secondary 
+
+<Preview>
+    <Story 
+        name="Secondary"
+        args={{
+            secondary: true,
+        }}
+    >
+        {(args) => <Button {...args} />}  
+    </Story>
+</Preview>
+
+# disabled 
+
+<Preview>
+    <Story 
+        name="Disabled"
+        args={{
+            disabled: true,
+        }}
+    >
+        {(args) => <Button {...args} />}  
+    </Story>
+</Preview>
