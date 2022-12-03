@@ -1,0 +1,46 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { Paragraph } from "./Paragraph";
+
+<Meta 
+    title="Paragraph" 
+    component={Paragraph} 
+    args={{
+        children: "Paragraph"    
+    }}
+/>
+
+# Paragraph 
+
+This is Paragraph component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => <Paragraph {...args} />}  
+    </Story>
+</Preview>
+
+# Center 
+
+<Preview>
+    <Story 
+        name="Center"
+        args={{
+            align: 'center',
+        }}
+    >
+        {(args) => <Paragraph {...args} />}  
+    </Story>
+</Preview>
+
+# Right 
+
+<Preview>
+    <Story 
+        name="Right"
+        args={{
+            align: 'right',
+        }}
+    >
+        {(args) => <Paragraph {...args} />}  
+    </Story>
+</Preview>

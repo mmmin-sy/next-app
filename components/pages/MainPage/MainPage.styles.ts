@@ -1,4 +1,5 @@
 import Styled, { css } from 'styled-components';
+import { Colors } from '../../theme/colors';
 
 export const Container = Styled.div`
     ${() => css`
@@ -11,6 +12,7 @@ export const Container = Styled.div`
 
 export const Movie = Styled.div`
     text-align: center;
+    color: ${Colors.basic};
 `;
 
 export const MovieImg = Styled.img`
