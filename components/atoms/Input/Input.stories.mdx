@@ -1,0 +1,47 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { Input } from "./Input";
+
+<Meta 
+    title="Atom/Input" 
+    component={Input} 
+    args={{
+        value: "Foo",
+        placeholder: "placeholder.."
+    }}
+/>
+
+# Input 
+
+This is Input component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => <Input {...args} />}  
+    </Story>
+</Preview>
+
+# InValid 
+
+<Preview>
+    <Story 
+        name="InValid"
+        args={{
+            invalid: true,
+        }}
+    >
+        {(args) => <Input {...args} />}  
+    </Story>
+</Preview>
+
+# Disabled 
+
+<Preview>
+    <Story 
+        name="Disabled"
+        args={{
+            disabled: true,
+        }}
+    >
+        {(args) => <Input {...args} />}  
+    </Story>
+</Preview>

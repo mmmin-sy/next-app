@@ -17,6 +17,9 @@ export default function NavBar() {
                 <Link href="/movies" className={"link"}>
                     <Styled.LinkText active={router.pathname === "/movies"}>Movies</Styled.LinkText>
                 </Link>
+                <Link href="/join" className={"link"}>
+                    <Styled.LinkText active={router.pathname === "/join"}>Join</Styled.LinkText>
+                </Link>
             </Styled.Links>
         </Styled.Navigation>
     );

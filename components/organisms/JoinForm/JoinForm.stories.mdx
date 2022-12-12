@@ -1,0 +1,24 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { JoinForm } from "./JoinForm";
+
+<Meta 
+    title="Organisms/JoinForm" 
+    component={JoinForm} 
+    args={{ 
+        
+    }}
+/>
+
+# JoinForm 
+
+This is JoinForm component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => (
+            <div style={{ width: '500px'}}>
+                <JoinForm {...args} />
+            </div>
+        )}  
+    </Story>
+</Preview>

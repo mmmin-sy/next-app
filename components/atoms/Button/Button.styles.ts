@@ -9,7 +9,6 @@ interface ButtonStyleProps {
 
 export const Button = styled.button<ButtonStyleProps>`
     ${({ primary, secondary, disabled }) => css`
-        font-size: 18px;
         padding: 8px 20px;
         border-radius: 5px;
         display: block;

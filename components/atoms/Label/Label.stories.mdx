@@ -1,0 +1,46 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { Label } from "./Label";
+
+<Meta 
+    title="Atom/Label" 
+    component={Label} 
+    args={{
+        children: "Foo"
+    }}
+/>
+
+# Label 
+
+This is Label component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => <Label {...args} />}  
+    </Story>
+</Preview>
+
+# InValid 
+
+<Preview>
+    <Story 
+        name="InValid"
+        args={{
+            invalid: true,
+        }}
+    >
+        {(args) => <Label {...args} />}  
+    </Story>
+</Preview>
+
+# Disabled 
+
+<Preview>
+    <Story 
+        name="Disabled"
+        args={{
+            disabled: true,
+        }}
+    >
+        {(args) => <Label {...args} />}  
+    </Story>
+</Preview>

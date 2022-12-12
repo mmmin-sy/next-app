@@ -1,0 +1,26 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { FormField } from "./FormField";
+
+<Meta 
+    title="Molecules/FormField" 
+    component={FormField} 
+    args={{ 
+        name: "textField",
+        placeholder: "text field ..",
+        disabled: false,
+        invalid: false,
+        label: "text",
+        errorMessage: undefined,
+        onChange: () => alert('change')
+    }}
+/>
+
+# FormField 
+
+This is FormField component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => <FormField {...args} />}  
+    </Story>
+</Preview>

@@ -1,0 +1,20 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { Form } from "./Form";
+
+<Meta 
+    title="Atom/Form" 
+    component={Form} 
+    args={{
+        children: "Insert any form here"    
+    }}
+/>
+
+# Form 
+
+This is Form component.
+
+<Preview>
+    <Story name="Default">
+        {(args) => <Form {...args} />}  
+    </Story>
+</Preview>
