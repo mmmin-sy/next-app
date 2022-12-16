@@ -1,19 +1,13 @@
 import { ErrorMessage } from 'formik';
 import { Input, InputProps } from '../../atoms/Input/Input';
-import { Label } from '../../atoms/Label/Label';
 import * as Styled from './FormField.styles';
-import { BaseSyntheticEvent } from 'react';
 
 export type FormFieldProps = {
     name: string;
     label?: string;
-    placeholder?: string;
-    disabled?: boolean;
-    invalid?: boolean;
     errorMessage?: string;
     children?: React.ReactNode;
-    type?: string;
-    onChange?: (event: BaseSyntheticEvent) => void;
+    focused?: boolean;
 } & InputProps;
 
 export const FormField: React.FC<FormFieldProps> = ({
@@ -23,17 +17,23 @@ export const FormField: React.FC<FormFieldProps> = ({
     disabled,
     invalid,
     errorMessage,
-    onChange
+    onChange,
+    onFocus,
+    onBlur,
+    ref,
+    focused = false
 }) => {
+    
     return (
         <Styled.FormField>
             {label && (
-                <Label
+                <Styled.InputLabel
                     disabled={disabled}
                     invalid={invalid}
+                    focused={focused}
                 >
                     {label}
-                </Label>
+                </Styled.InputLabel>
             )}
 
             <Input 
@@ -41,7 +41,11 @@ export const FormField: React.FC<FormFieldProps> = ({
                 placeholder={placeholder}
                 disabled={disabled}
                 invalid={invalid}
+                focused={focused}
                 onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                ref={ref}
             />
             
             {errorMessage && <Styled.ErrorMessage>{errorMessage}</Styled.ErrorMessage>}

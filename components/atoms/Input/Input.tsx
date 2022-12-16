@@ -1,5 +1,6 @@
-import { BaseSyntheticEvent, useState } from 'react';
+import { BaseSyntheticEvent } from 'react';
 import * as Styled from './Input.styles';
+import React from 'react';
 
 export interface InputProps {
     type?: string;
@@ -10,13 +11,15 @@ export interface InputProps {
     placeholder?: string;
     invalid?: boolean;
     onChange?: (event: BaseSyntheticEvent) => void;
+    onFocus?: (event: BaseSyntheticEvent) => void;
     onBlur?: (event: BaseSyntheticEvent) => void;
+    ref?: React.RefObject<HTMLInputElement>;
+    focused?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({ 
-    onChange, value, disabled, readOnly, inputMode, placeholder, invalid, type 
+    onChange, onFocus, onBlur, value, focused, disabled, readOnly, inputMode, placeholder, invalid, type, ref 
 }) => {
-
     return (
         <Styled.Input 
             type={type}
@@ -26,7 +29,11 @@ export const Input: React.FC<InputProps> = ({
             inputMode={inputMode}
             placeholder={placeholder}
             invalid={invalid}
+            focused={focused}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            ref={ref}
         />
     );
 }

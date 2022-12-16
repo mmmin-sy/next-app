@@ -28,6 +28,10 @@ export const JoinForm: React.FC = () => {
                         .required('Required'),
                     password: yup.string()
                         .min(8, 'Must be 8 characters or more')
+                        .matches(
+                            /^(?=.*[0-9])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/,
+                            'Password must contain one digit, uppercase letter, special character, no space, 8-16 long.'
+                        ),
                 })
             }
             onSubmit={ values => {
@@ -42,6 +46,7 @@ export const JoinForm: React.FC = () => {
                                 name="firstName"
                                 placeholder="First name"
                                 disabled={false}
+                                label="First name"
                             />
                         </Cell>
                         <Cell column={1}>
@@ -49,6 +54,7 @@ export const JoinForm: React.FC = () => {
                                 name="lastName"
                                 placeholder="Last name"
                                 disabled={false}
+                                label="Last name"
                             />
                         </Cell>
                     </Row>

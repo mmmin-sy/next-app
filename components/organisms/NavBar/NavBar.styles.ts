@@ -12,8 +12,7 @@ export const Navigation = styled.nav`
     align-items: center;
     padding-top: 20px;
     padding-bottom: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-bottom: 1px solid #c8c8c8;
     text-decoration: none;
     font-weight: 600;
     font-size: 18px; 
