@@ -24,7 +24,7 @@ export const Input = styled.input<InputStyleProps>`
         `}
         
         ${focused && css`
-            border-color: ${Colors.blue};
+            border-color: ${invalid ? Colors.tomatoRed : Colors.blue };
         `}
     `}
 `;

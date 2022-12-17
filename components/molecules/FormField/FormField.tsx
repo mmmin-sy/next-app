@@ -1,6 +1,10 @@
 import { ErrorMessage } from 'formik';
 import { Input, InputProps } from '../../atoms/Input/Input';
 import * as Styled from './FormField.styles';
+import { useState } from 'react';
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
+import RemoveRedEyeRoundedIcon from '@mui/icons-material/RemoveRedEyeRounded';
+import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 
 export type FormFieldProps = {
     name: string;
@@ -8,6 +12,7 @@ export type FormFieldProps = {
     errorMessage?: string;
     children?: React.ReactNode;
     focused?: boolean;
+    isPassWord?: boolean;
 } & InputProps;
 
 export const FormField: React.FC<FormFieldProps> = ({
@@ -21,9 +26,18 @@ export const FormField: React.FC<FormFieldProps> = ({
     onFocus,
     onBlur,
     ref,
-    focused = false
+    focused = false,
+    isPassWord = false,
+    name,
 }) => {
-    
+    const [visiblePassWord, setVisiblePassWord] = useState(false);
+    const [inputType, setInputType] = useState<string | undefined>(type);
+
+    const setPassWordType = () => {
+        setInputType(visiblePassWord ? 'password' : 'text')
+        setVisiblePassWord(!visiblePassWord)
+    }
+
     return (
         <Styled.FormField>
             {label && (
@@ -37,7 +51,7 @@ export const FormField: React.FC<FormFieldProps> = ({
             )}
 
             <Input 
-                type={type}
+                type={inputType}
                 placeholder={placeholder}
                 disabled={disabled}
                 invalid={invalid}
@@ -47,6 +61,20 @@ export const FormField: React.FC<FormFieldProps> = ({
                 onBlur={onBlur}
                 ref={ref}
             />
+            
+            
+            <Styled.Icon invalid={invalid}>
+                {errorMessage && !isPassWord && <WarningAmberRoundedIcon />}
+
+                {isPassWord && (
+                    <div onClick={() => setPassWordType()}>
+                        {visiblePassWord 
+                            ? <VisibilityOffRoundedIcon />
+                            : <RemoveRedEyeRoundedIcon />}
+                        
+                    </div>
+                )}
+            </Styled.Icon>
             
             {errorMessage && <Styled.ErrorMessage>{errorMessage}</Styled.ErrorMessage>}
             

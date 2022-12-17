@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Label } from '../../atoms/Label/Label.styles';
 import { Colors } from '../../theme/colors';
-
-interface LabelStyleProps {
+import { Input } from '../../atoms/Input/Input.styles';
+interface FormFieldStyleProps {
     disabled?: boolean;
     invalid?: boolean;
     focused?: boolean;
@@ -14,6 +14,13 @@ export const FormField = styled.div`
         margin-bottom: 20px;
         flex-direction: column;
         position: relative;
+
+        ${Input} {
+            padding-right: 30px;
+            &:focus {
+                padding-right: 30px;
+            }
+        }
     `}
 `;
 
@@ -28,7 +35,7 @@ export const ErrorMessage = styled.div`
     margin-top: 5px;
 `;
 
-export const InputLabel = styled(Label)<LabelStyleProps>`
+export const InputLabel = styled(Label)<FormFieldStyleProps>`
     ${({ disabled, invalid, focused }) => css`
         position: absolute;
         top: -8px;
@@ -45,7 +52,19 @@ export const InputLabel = styled(Label)<LabelStyleProps>`
         `}
 
         ${focused && css`
-            color: ${Colors.blue};
+            color: ${invalid ? Colors.tomatoRed : Colors.blue };
+        `}
+    `}
+`;
+
+export const Icon = styled.div<FormFieldStyleProps>`
+    ${({ invalid }) => css`
+        position: absolute;
+        top: 8px;
+        right: 8px;
+
+        ${invalid && css`
+            color: ${Colors.tomatoRed};
         `}
     `}
 `;

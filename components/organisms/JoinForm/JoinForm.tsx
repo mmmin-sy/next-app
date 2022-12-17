@@ -2,7 +2,6 @@ import { FormFormik } from '../../atoms/Form/FormFormik';
 import { FormFieldInput } from '../../molecules/FormField/FormFieldInput';
 import { Button } from '../../atoms/Button/Button';
 import * as yup from 'yup';
-import { useFormik } from 'formik';
 import * as Styled from './JoinForm.styles';
 import { Row, Cell } from '../../atoms/Grid';
 
@@ -31,7 +30,8 @@ export const JoinForm: React.FC = () => {
                         .matches(
                             /^(?=.*[0-9])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/,
                             'Password must contain one digit, uppercase letter, special character, no space, 8-16 long.'
-                        ),
+                        )
+                        .required('Required'),
                 })
             }
             onSubmit={ values => {
@@ -76,6 +76,7 @@ export const JoinForm: React.FC = () => {
                                 placeholder="Password"
                                 disabled={false}
                                 type="password"
+                                isPassWord
                             />
                         </Cell>
                     </Row>
